@@ -31,9 +31,13 @@ export class AppComponent {
   
   linkBase32 = "https://datatracker.ietf.org/doc/html/rfc4648";
   linkTOTP = "https://datatracker.ietf.org/doc/html/rfc6238";
+  linkNpmTotpGenerator = "https://www.npmjs.com/package/totp-generator";
+  linkAngular = "https://angular.io/";
 
+  textoCopiado = "";
   secret  = "";
-  title = 'Angular/TypeScript TOTP Generator';
+  limpar = "null";
+  title = 'Gerador de token TOTP Angular/TypeScript';
   //secret = "DZ5L4J5QBM546KW3XBFV5FOONGQAVCJQ";
   digitos = 6;
 
@@ -47,14 +51,38 @@ export class AppComponent {
   tokenTOTP: string = "******";
 
   generateTotpToken(){
-    console.log(this.secret);
-    console.log(this.digitos);
+    //console.log(this.secret);
+    //console.log(this.digitos);
     this.tokenTOTP = TOTP.generate(this.secret, {digits: this.digitos, algorithm: "SHA-1", period: 30}).otp;
     this.secret = "pegadinha_do_malandro!";
+    this.textoCopiado = "";
+    this.copyToClipboard(this.limpar, "copy");
+    
   }
 
-  
- 
+  copiarToken(){
+    this.copyToClipboard(this.tokenTOTP, "copy");
+    this.textoCopiado = "Copiado para área de transferência";
+  }
 
+  copyToClipboard(token: string, action: string) {
+    
+    // Create a temporary textarea element to hold the text
+    const textarea = document.createElement('textarea');
+    textarea.value = token;
+    
+    // Append the textarea to the document
+    document.body.appendChild(textarea);
+    
+    // Select the text in the textarea
+    textarea.select();
+    
+    // Copy the selected text to the clipboard
+    // Clipboard API aceita 'cut', 'copy' e 'paste' (https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
+    document.execCommand(action);
+    
+    // Remove the textarea from the document
+    document.body.removeChild(textarea);
+    }
   
 }

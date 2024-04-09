@@ -2,8 +2,10 @@
 <main class="main">
   <div class="content">
     <div class="col-5">
-      <h3>{{ title }}</h3>
-      <p>O secret deve estar no formato base32</p>
+      <h3>Gerador de token <a target="_blank" href="{{linkTOTP}}">TOTP</a> </h3>
+      <p>Escrito em TypeScript (Angular) <a target="_blank" href="{{linkAngular}}">base32</a></p>
+      <p>Utiliza a biblioteca <a target="_blank" href="{{linkNpmTotpGenerator}}">totp-generator</a></p>
+      <p>O secret deve estar no formato <a target="_blank" href="{{linkBase32}}">base32</a></p>
     </div>
     <form>
       <div class="form-group">
@@ -29,7 +31,10 @@
       <div class="col-9">
         <button type="button" (click)="generateTotpToken()" class="btn btn-success">Gerar Token</button>
         <span>&nbsp;&nbsp;</span>
-        <button type="button" (click)="generateTotpToken()" class="btn btn-primary">Copiar Token</button>
+        <button type="button" (click)="copiarToken()" class="btn btn-primary">Copiar Token</button>
+        <small id="passwordHelpInline" class="text-muted">
+          {{textoCopiado}}
+        </small>
       </div>
       
     </form>
