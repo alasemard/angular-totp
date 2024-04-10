@@ -1,16 +1,16 @@
 
 <main class="main">
-  <div class="content">
-    <div class="col-5">
+  <div class="content" style="margin:5px; text-align: left; width: 500px;">
+    <div class="xcol-5">
       <h3>Gerador de token <a target="_blank" href="{{linkTOTP}}">TOTP</a> </h3>
-      <p>Escrito em TypeScript (Angular) <a target="_blank" href="{{linkAngular}}">base32</a></p>
+      <p>Escrito em TypeScript (<a target="_blank" href="{{linkAngular}}">Angular</a>)</p>
       <p>Utiliza a biblioteca <a target="_blank" href="{{linkNpmTotpGenerator}}">totp-generator</a></p>
       <p>O secret deve estar no formato <a target="_blank" href="{{linkBase32}}">base32</a></p>
     </div>
     <form>
-      <div class="form-group">
+      <div class="form-group" >
         
-        <div class="col-4">
+        <div class="col-xs-4" >
           <label for="exampleInputEmail1">Secret</label>
           <input [value]="secret" (input)="atribuirValorSecret($event)" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cole aqui o secret...">
           <small id="passwordHelpInline" class="text-muted">
@@ -22,13 +22,13 @@
       </div>
       <div class="form-group">
         
-        <div class="col-2">
+        <div class="xcol-2">
           <label for="exampleInputPassword1">Digitos</label>
           <input type="number" [value]="digitos" (input)="atribuirValorDigito($event)" class="form-control" id="exampleInputPassword1" >
         </div>
         
       </div>
-      <div class="col-9">
+      <div class="xcol-9">
         <button type="button" (click)="generateTotpToken()" class="btn btn-success">Gerar Token</button>
         <span>&nbsp;&nbsp;</span>
         <button type="button" (click)="copiarToken()" class="btn btn-primary">Copiar Token</button>
@@ -42,12 +42,16 @@
    
 
 
-      <div class="col-4" style="margin-top: 30px;">
+      <div class="xcol-4" style="margin-top: 30px;">
        <h5>Token TOTP: <span style="padding: 3px; background-color: #0B5ED7; color: white; border-radius: 5px;">{{tokenTOTP}}</span></h5>
       </div>
+      <small id="passwordHelpInline" class="text-muted">
+        Autor: Anderson Luis
+      </small>
 
     
   </div>
 </main>
+
 
 <router-outlet />

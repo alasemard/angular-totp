@@ -18,6 +18,8 @@ no angular.json
       "node_modules/popper.js/dist/umd/popper.js",
       "node_modules/bootstrap/dist/js/bootstrap.js"
     ]
+
+  ng build --configuration production --aot  --base-href
 */
 @Component({
   selector: 'app-root',
@@ -29,6 +31,8 @@ no angular.json
 
 export class AppComponent {
   
+  title = 'Gerador de token TOTP Angular/TypeScript';
+
   linkBase32 = "https://datatracker.ietf.org/doc/html/rfc4648";
   linkTOTP = "https://datatracker.ietf.org/doc/html/rfc6238";
   linkNpmTotpGenerator = "https://www.npmjs.com/package/totp-generator";
@@ -37,7 +41,7 @@ export class AppComponent {
   textoCopiado = "";
   secret  = "";
   limpar = "null";
-  title = 'Gerador de token TOTP Angular/TypeScript';
+  
   //secret = "DZ5L4J5QBM546KW3XBFV5FOONGQAVCJQ";
   digitos = 6;
 
